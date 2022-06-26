@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-cats
+  namespace: cats
+  labels:
+    course: clo835
+    app: cats
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: cats-pod
+  template:
+    metadata:
+      labels:
+        name: cats-pod
+    spec:
+      containers:
+      - name: cats-container
+        image: 918542909840.dkr.ecr.us-east-1.amazonaws.com/rf-images:catsv1.0
+        # httpd:2.4-alpine
